@@ -1,3 +1,8 @@
+/** Author: Brandon Connely
+ * Date: 4/1/26
+ * Purpose: A4
+ */
+
 package graph;
 
 import static org.junit.Assert.*;
@@ -28,6 +33,7 @@ public class ShortestPathsTest {
     private Graph loadBasicGraph(String fn) {
         Graph result = null;
         String filePath = getGraphResource(fn);
+        filePath = filePath.replace("%20", " "); // Fix bug for file paths involving spaces(C:/Brandon Connely) causing failing gradle tests
         try {
           result = ShortestPaths.parseGraph("basic", filePath);
         } catch (FileNotFoundException e) {
