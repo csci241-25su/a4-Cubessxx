@@ -31,8 +31,6 @@ dependencies {
 
 test {
     testLogging {
-        // TODO: Before submission, delete the line below that adds events "passed", "skipped", "failed".
-        events "passed", "skipped", "failed"
         showStandardStreams = true
         exceptionFormat = "full"
     }

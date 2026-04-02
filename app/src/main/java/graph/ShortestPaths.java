@@ -161,7 +161,6 @@ public class ShortestPaths {
 
       // If destCode was not given, print each reachable node followed by the length of the shortest path to it from the origin.
       if (destCode == null) {
-          System.out.println();
           System.out.println("Shortest paths from " + origCode + ":");
           for (Node node : graph.getNodes().values()) {
               if (!node.equals(origin) && sp.shortestPathLength(node) != Double.POSITIVE_INFINITY) {
