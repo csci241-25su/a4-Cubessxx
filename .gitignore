@@ -6,3 +6,4 @@ build
 
 app/src/test/resources/*
 External Resources/
+app/data/DB1BCoupon_2018_1.csv

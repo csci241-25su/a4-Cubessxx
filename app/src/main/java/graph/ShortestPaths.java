@@ -51,6 +51,7 @@ public class ShortestPaths {
                     paths.put(w, new PathData(newDistance, f)); // w.d = f.d + weight(f, w); w.bp = f;
                     F.add(w, newDistance); // add w to F;
                 } 
+
                 else if (F.contains(w) && newDistance < paths.get(w).d) { // else if (f.d + weight(f,w) < w.d) 
                     paths.get(w).d = newDistance; // w.d = f.d + weight(f,w);
                     paths.get(w).bp = f; // w.bp = f;
@@ -153,7 +154,7 @@ public class ShortestPaths {
       graph.report();
 
 
-      // Create a ShortestPaths object, use it to compute shortest
+      // Create a ShortestPaths object, use it to compute shortest paths data from the origin node given by origCode.
       ShortestPaths sp = new ShortestPaths();
       Node origin = graph.getNode(origCode);
       sp.compute(origin);
@@ -178,7 +179,8 @@ public class ShortestPaths {
 
           if (path == null) {
               System.out.println("No path from " + origCode + " to " + destCode);
-          } else {
+          } 
+          else {
               for (Node node : path) {
                   System.out.print(node + " ");
               }
