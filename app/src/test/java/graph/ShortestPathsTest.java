@@ -135,6 +135,27 @@ public class ShortestPathsTest {
         assertEquals(sp.shortestPathLength(c), 2.0, 1e-6);
     }
 
+    /** computeFlightMode should minimize number of flights instead of miles. */
+    @Test
+    public void test04() {
+        Graph g = new Graph();
+        Node a = g.getNode("A");
+        Node b = g.getNode("B");
+        Node c = g.getNode("C");
+        g.addEdge(a, b, 1);
+        g.addEdge(b, c, 1);
+        g.addEdge(a, c, 10);
+
+        ShortestPaths sp = new ShortestPaths();
+        sp.computeFlightMode(a);
+
+        LinkedList<Node> path = sp.shortestPath(c);
+        assertEquals(path.size(), 2);
+        assertEquals(path.getFirst(), a);
+        assertEquals(path.getLast(), c);
+        assertEquals(sp.shortestPathLength(c), 1.0, 1e-6);
+    }
+
     /* Pro tip: unless you include @Test on the line above your method header,
      * gradle test will not run it! This gets me every time. */
 
